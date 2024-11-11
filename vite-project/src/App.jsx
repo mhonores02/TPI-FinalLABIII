@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Protected from "./Components/Protected/Protected";
+import Login from "./Components/Login/Login";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import Register from "./Components/register/Register";
+import Header from "./Components/Cart/CartHeader";
+import ProductList from "./Components/Cart/ProductListCart";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [allProducts, setAllProducts] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [countProducts, setCountProducts] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const loginHandler = () => {
+    setIsLoggedIn(true);
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Header
+            allProducts={allProducts}
+            setAllProducts={setAllProducts}
+            total={total}
+            setTotal={setTotal}
+            countProducts={countProducts}
+            setCountProducts={setCountProducts}
+          />
+          <ProductList
+            allProducts={allProducts}
+            setAllProducts={setAllProducts}
+            total={total}
+            setTotal={setTotal}
+            countProducts={countProducts}
+            setCountProducts={setCountProducts}
+          />
+          <Protected isSignedIn={isLoggedIn}>
+            <Dashboard setIsLoggedIn={setIsLoggedIn} />
+          </Protected>
+        </>
+      ),
+    },
+    {
+      path: "/login",
+      element: <Login onLogin={loginHandler} />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

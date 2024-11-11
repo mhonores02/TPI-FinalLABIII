@@ -1,7 +1,8 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, 'Nunito', sans-serif;
+  --body-font: 'Nunito';
   line-height: 1.5;
-  font-weight: 400;
+  --font-weight: 800;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -15,6 +16,7 @@
 
 a {
   font-weight: 500;
+  width: 800;
   color: #646cff;
   text-decoration: inherit;
 }
@@ -23,9 +25,12 @@ a:hover {
 }
 
 body {
+  font-family: var(--body-font);
+  font-weight: 800;
+  color: rgb(1, 81, 185);
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -52,6 +57,12 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-oval {
+  border-radius: 50px;
+  padding: 10px 20px;
+  background-color: darkblue;
 }
 
 @media (prefers-color-scheme: light) {
