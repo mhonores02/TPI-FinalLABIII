@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-export const Header = ({
+export const CartHeader = ({
   allProducts,
   setAllProducts,
   total,
@@ -26,18 +26,18 @@ export const Header = ({
 
   return (
     <header>
-      <h1>Tienda</h1>
+      <h1>Tienda de Pastas</h1>
 
       <div className="container-icon">
         <div className="container-cart-icon" onClick={() => setActive(!active)}>
-          {/* SVG Icon */}
+          {/* Icono de carrito */}
           <div className="count-products">
             <span id="contador-productos">{countProducts}</span>
           </div>
         </div>
 
         <div
-          className={`container-cart-products ${active ? "" : "hidden-cart"}`}
+          className={`container-cart-products ${active ? "active" : "hidden-cart"}`}
         >
           {allProducts.length ? (
             <>
@@ -93,7 +93,7 @@ export const Header = ({
 };
 
 // Validación de props
-Header.propTypes = {
+CartHeader.propTypes = {
   allProducts: PropTypes.array.isRequired,
   setAllProducts: PropTypes.func.isRequired,
   total: PropTypes.number.isRequired,
@@ -101,3 +101,5 @@ Header.propTypes = {
   setCountProducts: PropTypes.func.isRequired,
   setTotal: PropTypes.func.isRequired,
 };
+
+export default CartHeader;
