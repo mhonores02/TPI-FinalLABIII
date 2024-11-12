@@ -1,0 +1,129 @@
+/* Contenedor principal de la página */
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  /* Header (Carrito) */
+  header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container-icon {
+    position: relative;
+  }
+  
+  .container-cart-icon {
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .count-products {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+  
+  .container-cart-products {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    width: 300px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none;
+    z-index: 10;
+  }
+  
+  .container-cart-products.active {
+    display: block;
+  }
+  
+  .hidden-cart {
+    display: none;
+  }
+  
+  .cart-product {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .cart-total {
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .cart-empty {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  /* Productos */
+  .container-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .item {
+    width: 200px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .item figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .info-product {
+    margin-top: 10px;
+  }
+  
+  .info-product h2 {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .info-product .price {
+    font-size: 16px;
+    color: #888;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
